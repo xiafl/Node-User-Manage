@@ -1,0 +1,48 @@
+<%- include('../../layouts/header') %>
+<div class="panel panel-info">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><p><%= title %></p></div>
+    <!-- Table -->
+    <a href="/admin/user/save" class="btn btn-primary">添加用户</a>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>用户名</th>
+            <th>密码</th>
+            <th>邮箱</th>
+            <th>操作</th>
+        </tr>
+        <% users.forEach(function (user) { %>
+        <tr>
+            <td><a href="/admin/user?_id=<%= user._id %>"><%= user._id %></a></td>
+            <td><%= user.name %></td>
+            <td><%= user.passwd %></td>
+            <td><%= user.email %></td>
+            <td>
+                <button><a href="/admin/user/save?_id=<%= user._id %>">编辑</a></button>
+                <button id="delete-user-btn" data-user-id="<%= user._id %>" type="submit">删除</button>
+            </td>
+        </tr>
+        <% }); %>
+    </table>
+</div>
+<script>
+    $(function () {
+        $('button#delete-user-btn').on('click', function (event) {
+            event.preventDefault();
+            $.ajax({
+                method: 'post',
+                url: '/admin/user/delete',
+                data: {_id: $('button#delete-user-btn').data('user-id')},
+                success: function (data) {
+                    if (data.code === 0) {
+                        location.reload();
+                    } else {
+                        alert(data.messages);
+                    }
+                }
+            });
+        });
+    });
+</script>
+<%- include('../../layouts/footer') %>

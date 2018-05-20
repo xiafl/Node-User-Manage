@@ -1,0 +1,38 @@
+{
+  "name": "manage",
+  "version": "1.0.0",
+  "description": "manage system develope by nodejs+express+mongodb",
+  "main": "manage.js",
+  "scripts": {
+    "start": "node ./bin/www.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xieguanping12/manage.git"
+  },
+  "keywords": [
+    "manage",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "xieguanping12 <diudiu1148@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xieguanping12/manage/issues"
+  },
+  "homepage": "https://github.com/xieguanping12/manage#readme",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.7",
+    "express": "^4.0.0",
+    "fs": "0.0.2",
+    "md5": "^2.2.1",
+    "mongoose": "^4.10.0",
+    "mongoose-validator": "^1.3.0",
+    "path": "^0.12.7",
+    "trim": "0.0.1",
+    "validator": "^7.1.0"
+  }
+}
